@@ -6,18 +6,56 @@
 <title>You're invited to a Spot — Wavy</title>
 <meta name="description" content="You've been invited to a Wavy spot. Open the app to see who's there and join, or get Wavy to meet people at real-life spots near you." />
 <meta name="theme-color" content="#0B0712" />
+<link rel="canonical" href="https://wavydating.com/events" />
+<meta name="robots" content="index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1" />
 <meta property="og:title" content="You're invited to a Spot — Wavy" />
 <meta property="og:description" content="You've been invited to a Wavy spot. Open the app to see who's there and join." />
 <meta property="og:type" content="website" />
-<meta property="og:url" content="https://wavydating.com/events.html" />
-<meta property="og:image" content="assets/153.png" />
+<meta property="og:url" content="https://wavydating.com/events" />
+<meta property="og:image" content="https://wavydating.com/assets/og-image.png" />
+<meta property="og:image:width" content="1200" />
+<meta property="og:image:height" content="630" />
+<meta property="og:image:type" content="image/png" />
+<meta property="og:image:alt" content="Wavy — go live to meet someone nearby, or drop into a Spot to find your people." />
+<meta property="og:site_name" content="Wavy" />
+<meta property="og:locale" content="en_US" />
+
+<!-- Twitter -->
+<meta name="twitter:card" content="summary_large_image" />
+<meta name="twitter:site" content="@Wavy_match" />
+<meta name="twitter:creator" content="@Wavy_match" />
+<meta name="twitter:title" content="You're invited to a Spot — Wavy" />
+<meta name="twitter:description" content="You've been invited to a Wavy spot. Open the app to see who's there and join." />
+<meta name="twitter:image" content="https://wavydating.com/assets/og-image.png" />
+<meta name="twitter:image:alt" content="Wavy — meet people in real time." />
 <link rel="icon" type="image/png" href="assets/iconMark.png" />
 <link rel="apple-touch-icon" href="assets/iconMark.png" />
+<link rel="manifest" href="/site.webmanifest" />
 <link rel="preconnect" href="https://fonts.googleapis.com" />
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
 <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700;800;900&family=Work+Sans:wght@300;400;500;600;700&display=swap" rel="stylesheet" />
 <link rel="stylesheet" href="styles.css" />
 <link rel="stylesheet" href="pages.css" />
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "BreadcrumbList",
+  "itemListElement": [
+    {
+      "@type": "ListItem",
+      "position": 1,
+      "name": "Home",
+      "item": "https://wavydating.com/"
+    },
+    {
+      "@type": "ListItem",
+      "position": 2,
+      "name": "Spot Invite",
+      "item": "https://wavydating.com/events"
+    }
+  ]
+}
+</script>
 </head>
 <body>
 <div class="grain" aria-hidden="true"></div>
@@ -25,27 +63,27 @@
 <!-- ============ NAV ============ -->
 <header class="nav nav--solid" id="nav">
   <div class="nav__inner">
-    <a href="index.html" class="brand" aria-label="Wavy home">
+    <a href="/" class="brand" aria-label="Wavy home">
       <img src="assets/Black.png" alt="Wavy" class="brand__logo" width="76" height="36" />
     </a>
     <nav class="nav__links" aria-label="Primary">
-      <a href="index.html#live">Live Match</a>
-      <a href="index.html#spots">Spots</a>
-      <a href="support.html">Support</a>
+      <a href="/#live">Live Match</a>
+      <a href="/#spots">Spots</a>
+      <a href="/support">Support</a>
     </nav>
     <div class="nav__cta">
-      <a href="support.html" class="btn btn--ghost">Contact</a>
-      <a href="earlyaccess.html" class="btn btn--primary">Join the waitlist</a>
+      <a href="/support" class="btn btn--ghost">Contact</a>
+      <a href="/earlyaccess" class="btn btn--primary">Join the waitlist</a>
     </div>
     <button class="nav__burger" id="burger" aria-label="Open menu" aria-expanded="false">
       <span></span><span></span><span></span>
     </button>
   </div>
   <div class="nav__mobile" id="mobileMenu" hidden>
-    <a href="index.html#live">Live Match</a>
-    <a href="index.html#spots">Spots</a>
-    <a href="support.html">Support</a>
-    <a href="earlyaccess.html" class="btn btn--primary btn--block">Join the waitlist</a>
+    <a href="/#live">Live Match</a>
+    <a href="/#spots">Spots</a>
+    <a href="/support">Support</a>
+    <a href="/earlyaccess" class="btn btn--primary btn--block">Join the waitlist</a>
   </div>
 </header>
 
@@ -66,7 +104,7 @@
         <a href="https://apps.apple.com/us/app/wavy-live-spots-networking/id6763865183" target="_blank" rel="noopener noreferrer" class="store" aria-label="Download on the App Store"><svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor"><path d="M16.36 1.43c.08 1-.32 1.98-.94 2.69-.66.76-1.74 1.35-2.79 1.27-.1-.98.38-2 .96-2.65.66-.74 1.8-1.3 2.77-1.31zM19.9 17.2c-.5 1.16-.74 1.67-1.39 2.7-.9 1.43-2.18 3.2-3.76 3.22-1.4.01-1.77-.92-3.67-.91-1.9.01-2.3.93-3.71.92-1.58-.02-2.79-1.63-3.69-3.05C1.16 16.6.9 11.92 2.46 9.42c1.1-1.78 2.85-2.83 4.49-2.83 1.67 0 2.72.92 4.1.92 1.34 0 2.16-.92 4.1-.92 1.46 0 3.01.8 4.11 2.17-3.61 1.98-3.02 7.13.64 8.46z"/></svg><span><small>Download on the</small>App Store</span></a>
         <a href="https://play.google.com/store/apps/details?id=com.wavydating.app" target="_blank" rel="noopener noreferrer" class="store" aria-label="Get it on Google Play"><svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor"><path d="M3.6 2.3c-.3.3-.5.8-.5 1.4v16.6c0 .6.2 1.1.5 1.4l.1.1L13 12.1v-.2L3.7 2.2l-.1.1zm12.8 13.2L14 13.1v-.2l2.4-2.4 5.3 3c1.5.9 1.5 2.3 0 3.1l-5.3 2.9zM14 11.9l2.4-2.4-9.3-5.3c-.5-.3-1-.3-1.4-.1L14 11.9zm0 .4L5.7 20.9c.4.2.9.2 1.4-.1l9.3-5.3L14 12.3z"/></svg><span><small>Get it on</small>Google Play</span></a>
       </div>
-      <p style="margin-top:1.4rem"><a href="index.html">← Back to home</a></p>
+      <p style="margin-top:1.4rem"><a href="/">← Back to home</a></p>
     </div>
   </section>
 </main>
@@ -75,7 +113,7 @@
 <footer class="foot">
   <div class="wrap foot__grid">
     <div class="foot__brand">
-      <a href="index.html" class="brand">
+      <a href="/" class="brand">
         <img src="assets/White.png" alt="Wavy" class="brand__logo brand__logo--foot" width="128" height="60" />
       </a>
       <p>Dating reimagined. Connection in real time.</p>
@@ -83,24 +121,24 @@
     </div>
     <nav class="foot__col" aria-label="Product">
       <p class="foot__h">Product</p>
-      <a href="index.html#live">Live Match</a>
-      <a href="index.html#spots">Spots</a>
-      <a href="earlyaccess.html">Early Access</a>
+      <a href="/#live">Live Match</a>
+      <a href="/#spots">Spots</a>
+      <a href="/earlyaccess">Early Access</a>
     </nav>
     <nav class="foot__col" aria-label="Company">
       <p class="foot__h">Company</p>
-      <a href="index.html#why">About</a>
-      <a href="career.html">Careers</a>
-      <a href="events.html">Events</a>
-      <a href="support.html">Support</a>
+      <a href="/#why">About</a>
+      <a href="/career">Careers</a>
+      <a href="/events">Events</a>
+      <a href="/support">Support</a>
     </nav>
     <nav class="foot__col" aria-label="Legal &amp; Safety">
       <p class="foot__h">Legal &amp; Safety</p>
-      <a href="privacy-policy.html">Privacy Policy</a>
-      <a href="terms-conditions.html">Terms &amp; Conditions</a>
-      <a href="safetips.html">Safe Dating Tips</a>
-      <a href="child-safety.html">Child Safety</a>
-      <a href="delete-account.html">Delete Account</a>
+      <a href="/privacy-policy">Privacy Policy</a>
+      <a href="/terms-conditions">Terms &amp; Conditions</a>
+      <a href="/safetips">Safe Dating Tips</a>
+      <a href="/child-safety">Child Safety</a>
+      <a href="/delete-account">Delete Account</a>
     </nav>
   </div>
   <div class="wrap foot__bar">
