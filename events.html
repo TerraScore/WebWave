@@ -59,8 +59,9 @@
           <circle cx="12" cy="10" r="2.6"/>
         </svg>
       </div>
-      <h1>You've been invited to a Wavy spot.</h1>
-      <p class="lead">Open the app to see who's there and join. Don't have Wavy yet? Get the app and meet people at real-life spots near you.</p>
+      <h1 id="inviteTitle">You've been invited to a Wavy spot.</h1>
+      <p class="lead" id="inviteLead">Open the app to see who's there and join. Don't have Wavy yet? Get the app and meet people at real-life spots near you.</p>
+      <a id="openApp" class="btn btn--primary btn--block" href="#" hidden style="justify-content:center;margin-bottom:1rem">Open in Wavy</a>
       <div class="simple__actions">
         <a href="https://apps.apple.com/us/app/wavy-live-spots-networking/id6763865183" target="_blank" rel="noopener noreferrer" class="store" aria-label="Download on the App Store"><svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor"><path d="M16.36 1.43c.08 1-.32 1.98-.94 2.69-.66.76-1.74 1.35-2.79 1.27-.1-.98.38-2 .96-2.65.66-.74 1.8-1.3 2.77-1.31zM19.9 17.2c-.5 1.16-.74 1.67-1.39 2.7-.9 1.43-2.18 3.2-3.76 3.22-1.4.01-1.77-.92-3.67-.91-1.9.01-2.3.93-3.71.92-1.58-.02-2.79-1.63-3.69-3.05C1.16 16.6.9 11.92 2.46 9.42c1.1-1.78 2.85-2.83 4.49-2.83 1.67 0 2.72.92 4.1.92 1.34 0 2.16-.92 4.1-.92 1.46 0 3.01.8 4.11 2.17-3.61 1.98-3.02 7.13.64 8.46z"/></svg><span><small>Download on the</small>App Store</span></a>
         <a href="https://play.google.com/store/apps/details?id=com.wavydating.app" target="_blank" rel="noopener noreferrer" class="store" aria-label="Get it on Google Play"><svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor"><path d="M3.6 2.3c-.3.3-.5.8-.5 1.4v16.6c0 .6.2 1.1.5 1.4l.1.1L13 12.1v-.2L3.7 2.2l-.1.1zm12.8 13.2L14 13.1v-.2l2.4-2.4 5.3 3c1.5.9 1.5 2.3 0 3.1l-5.3 2.9zM14 11.9l2.4-2.4-9.3-5.3c-.5-.3-1-.3-1.4-.1L14 11.9zm0 .4L5.7 20.9c.4.2.9.2 1.4-.1l9.3-5.3L14 12.3z"/></svg><span><small>Get it on</small>Google Play</span></a>
@@ -113,5 +114,69 @@
 </footer>
 
 <script src="script.js" defer></script>
+<script>
+/* Spot-invite deep link. A share URL is wavydating.com/events?id=<uuid>.
+   On mobile we try to open the spot in the Wavy app and fall back to the
+   store if it isn't installed; on desktop / missing id we just show the
+   marketing landing + store buttons (unchanged). */
+(function () {
+  var id = new URLSearchParams(location.search).get('id');
+  // Only act on a well-formed UUID so we never build a deep link from junk.
+  if (!id || !/^[0-9a-f]{8}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{12}$/i.test(id)) return;
+
+  var deepLink = 'wavy://events/' + id;
+  var ua = navigator.userAgent || '';
+  var isIOS = /iPhone|iPad|iPod/i.test(ua) ||
+              (/Mac/i.test(ua) && 'ontouchend' in document); // iPadOS poses as Mac
+  var isAndroid = /Android/i.test(ua);
+  var isMobile = isIOS || isAndroid;
+  var storeUrl = isIOS
+    ? 'https://apps.apple.com/us/app/wavy-live-spots-networking/id6763865183'
+    : 'https://play.google.com/store/apps/details?id=com.wavydating.app';
+
+  // Desktop: leave the marketing page as-is (a custom scheme can't open
+  // anything there). Mobile: reveal a primary "Open in Wavy" button and
+  // auto-attempt the open.
+  if (!isMobile) return;
+
+  var openBtn = document.getElementById('openApp');
+  if (openBtn) {
+    openBtn.href = deepLink;
+    openBtn.hidden = false;
+    openBtn.addEventListener('click', function (e) { e.preventDefault(); tryOpen(); });
+  }
+  var lead = document.getElementById('inviteLead');
+  if (lead) lead.textContent = "Opening this spot in the Wavy app…";
+
+  // If the app opens, the page is backgrounded — use that to cancel the
+  // store fallback so installed users don't get bounced to the store.
+  var appOpened = false;
+  function markOpened() { appOpened = true; }
+  document.addEventListener('visibilitychange', function () { if (document.hidden) markOpened(); });
+  window.addEventListener('pagehide', markOpened);
+  window.addEventListener('blur', markOpened);
+
+  function tryOpen() {
+    if (isAndroid) {
+      // Chrome's intent:// handles "open app, else go to store" natively
+      // via browser_fallback_url — most reliable on Android.
+      window.location.href =
+        'intent://events/' + id +
+        '#Intent;scheme=wavy;package=com.wavydating.app;S.browser_fallback_url=' +
+        encodeURIComponent(storeUrl) + ';end';
+      return;
+    }
+    // iOS: navigate to the scheme; if we're still here ~1.6s later the app
+    // wasn't installed, so send them to the App Store.
+    window.location.href = deepLink;
+    setTimeout(function () {
+      if (!appOpened && !document.hidden) window.location.href = storeUrl;
+    }, 1600);
+  }
+
+  // Auto-attempt shortly after load (gives the listeners a tick to attach).
+  setTimeout(tryOpen, 150);
+})();
+</script>
 </body>
 </html>
