@@ -386,6 +386,8 @@ strong { font-weight: 600; }
 .ava { width: 44px; height: 44px; border-radius: 50%; display: grid; place-items: center; font-family: "Outfit", sans-serif; font-weight: 700; font-size: 1rem; color: #fff; background: var(--c, #ccc); border: 3px solid #fff; margin-left: -12px; flex-shrink: 0; }
 .ava:first-child { margin-left: 0; }
 .ava--more { background: var(--rose-soft); color: var(--rose-deep); font-size: .78rem; }
+.ava--photo { overflow: hidden; }
+.ava--photo img { width: 100%; height: 100%; object-fit: cover; display: block; }
 .ava--you { background: linear-gradient(135deg, var(--rose-bright), var(--rose)); box-shadow: 0 0 0 3px rgba(211,28,92,.22); font-size: .62rem; position: relative; z-index: 2; }
 .ava--in { animation: avain .45s var(--ease); }
 @keyframes avain { 0% { transform: scale(0) translateX(-12px); opacity: 0; } 60% { transform: scale(1.14); } 100% { transform: scale(1); opacity: 1; } }
