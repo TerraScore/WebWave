@@ -366,6 +366,7 @@ strong { font-weight: 600; }
   .foot__bar { flex-direction: column; gap: 1rem; text-align: center; }
   .waitlist__row { flex-direction: column; border-radius: 22px; }
   .waitlist .btn { width: 100%; }
+  .live__note { border-radius: 16px; align-items: flex-start; }
 }
 @media (max-width: 460px) {
   .steps { grid-template-columns: 1fr; }
