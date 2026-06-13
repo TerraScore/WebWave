@@ -7,3 +7,4 @@ Thumbs.db
 .agents/
 node_modules/
 skills-lock.json
+.superpowers/
