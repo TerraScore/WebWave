@@ -358,6 +358,11 @@ strong { font-weight: 600; }
   .nav__burger { display: flex; margin-left: auto; }
   .nav.open .nav__mobile { display: flex; }
   .hero { padding-top: 110px; }
+  .hero__copy { display: flex; flex-direction: column; }
+  .hero__copy .hero__actions { order: 2; margin-top: 1.5rem; }
+  .hero__copy .hero__stores { order: 3; }
+  .hero__copy .hero__sub { order: 4; margin-top: 1.5rem; }
+  .hero__copy .hero__proof { order: 5; }
   .hero__sub { max-width: none; }
   .compare { grid-template-columns: 1fr; gap: 1.4rem; }
   .compare__vs { margin: 0 auto; }
