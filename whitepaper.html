@@ -205,6 +205,73 @@ tr:hover td{background:rgba(255,255,255,.01)}
 .pulse{animation:pg 4s ease-in-out infinite}
 @media(prefers-reduced-motion:reduce){.wa,.wa2,.pulse{animation:none}}
 
+/* ── MOBILE ── */
+@media(max-width:640px){
+  /* modebar */
+  #modebar{padding:0 14px;gap:8px}
+  .mb-logo{height:20px}
+  .mb-tab{padding:5px 10px;font-size:11px}
+
+  /* make slides scrollable so content is never clipped */
+  .slide{padding:64px 18px 52px;overflow-y:auto;align-items:flex-start}
+  #counter{bottom:10px;right:12px;font-size:10px}
+  #hint-d{bottom:10px;font-size:10px}
+
+  /* typography scale down */
+  .display{font-size:clamp(32px,9vw,52px);line-height:1}
+  .hl{font-size:clamp(22px,6vw,36px)}
+  .sub{font-size:14px;max-width:100%}
+  .bn{font-size:clamp(44px,12vw,80px)}
+  .sb .v{font-size:clamp(22px,7vw,38px)}
+  .sr{gap:18px;margin-top:18px}
+  .qt{font-size:clamp(22px,7vw,40px)}
+
+  /* grids collapse to 1-col */
+  .sg{grid-template-columns:1fr}
+  .mg{grid-template-columns:1fr 1fr}
+  .rv{grid-template-columns:1fr}
+  .fg2{grid-template-columns:1fr}
+
+  /* flow — drop arrows, wrap to 2-col */
+  .fl{display:grid;grid-template-columns:1fr 1fr;gap:10px;margin-top:16px}
+  .fa2{display:none}
+  .fs{min-width:unset}
+  .fi{width:44px;height:44px;font-size:18px}
+
+  /* moat labels stack vertically */
+  .mi .mh{flex-direction:column;gap:2px}
+  .mi .ms{font-size:10px}
+
+  /* phase items */
+  .pitem{padding:13px 14px;gap:12px}
+
+  /* tier cards in deck */
+  .tp{font-size:clamp(26px,7vw,40px)}
+
+  /* brief cover */
+  .b-cover{padding:24px 18px}
+  .b-cover .b-title{font-size:clamp(26px,7vw,44px)}
+  .b-cover .b-stats{gap:18px;margin-top:22px;padding-top:20px}
+  .b-cover .bs-item .bv{font-size:clamp(20px,6vw,30px)}
+
+  /* brief inner padding */
+  .brief-inner{padding:28px 16px 60px}
+
+  /* brief roadmap */
+  .b-rph{gap:10px}
+  .b-rpn{font-size:24px}
+
+  /* brief segments */
+  .b-seg{gap:10px}
+  .b-seg .bsn{font-size:28px;width:auto}
+
+  /* brief focus grid */
+  .b-focus{grid-template-columns:1fr}
+
+  /* closing */
+  .b-close{padding:32px 20px}
+}
+
 /* logo in modebar */
 .mb-logo{height:26px;width:auto;display:block}
 
